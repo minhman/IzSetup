@@ -1,0 +1,40 @@
+<UserControl x:Class="IzSetup.Views.LoadingScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             DataContext="{Binding LoadingViewModel, RelativeSource={RelativeSource AncestorType=Window}}">
+    <Grid Background="White">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <!-- Loading Spinner -->
+            <Border HorizontalAlignment="Center" Margin="0,0,0,30">
+                <TextBlock Text="⏳" FontSize="80" HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- Title -->
+            <TextBlock Text="Checking Software Status..." 
+                       FontSize="24" FontWeight="Bold" 
+                       Foreground="#0078D4" 
+                       TextAlignment="Center" 
+                       Margin="0,0,0,15"/>
+
+            <!-- Status Message -->
+            <TextBlock Text="{Binding StatusMessage}" 
+                       FontSize="14" 
+                       Foreground="#666666" 
+                       TextAlignment="Center" 
+                       Margin="0,0,0,30"
+                       TextWrapping="Wrap"
+                       MinHeight="40"/>
+
+            <!-- Progress Bar -->
+            <ProgressBar Height="8" Background="#E0E0E0" Foreground="#27AE60"
+                         Value="{Binding ProgressValue}" Maximum="100" Margin="0,0,0,20"/>
+
+            <!-- Progress Text -->
+            <TextBlock Text="{Binding ProgressText}" 
+                       FontSize="12" 
+                       Foreground="#999999" 
+                       TextAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

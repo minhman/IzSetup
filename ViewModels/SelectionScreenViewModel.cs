@@ -11,7 +11,9 @@ namespace IzSetup.ViewModels;
 public partial class SelectionScreenViewModel : ObservableObject
 {
     private readonly SoftwareDataService _softwareDataService;
+    private readonly SoftwareStatusService _softwareStatusService;
     private readonly LoggingService _loggingService;
+    private List<SoftwareItem> _allSoftware = [];
 
     [ObservableProperty]
     private List<SoftwareItem> softwareList = [];
@@ -31,34 +33,69 @@ public partial class SelectionScreenViewModel : ObservableObject
     [ObservableProperty]
     private string selectedCountText = "0 selected";
 
+    [ObservableProperty]
+    private string selectedTab = "Install"; // Install, Installed, Update
+
     public List<SoftwareItem> SelectedSoftware => SoftwareList.Where(s => s.IsSelected).ToList();
 
-    public SelectionScreenViewModel(SoftwareDataService softwareDataService, LoggingService loggingService)
+    public SelectionScreenViewModel(SoftwareDataService softwareDataService, SoftwareStatusService softwareStatusService, LoggingService loggingService)
     {
         _softwareDataService = softwareDataService;
+        _softwareStatusService = softwareStatusService;
         _loggingService = loggingService;
     }
 
     /// <summary>
-    /// Load software list
+    /// Load software list and check installation status
     /// </summary>
     public async Task LoadSoftwareAsync()
     {
-        SoftwareList = _softwareDataService.GetAllSoftware();
-        var cats = _softwareDataService.GetCategories();
-        Categories = new List<string> { "All" };
-        Categories.AddRange(cats);
-        SelectedCategory = "All";
-        RefreshSoftwareList();
+        try
+        {
+            await _softwareDataService.LoadSoftwareListAsync();
+            _allSoftware = new List<SoftwareItem>(_softwareDataService.GetAllSoftware());
+            
+            // Check installation status for all software
+            await _softwareStatusService.CheckAndUpdateStatusAsync(_allSoftware);
+
+            var cats = _softwareDataService.GetCategories();
+            Categories = new List<string> { "All" };
+            Categories.AddRange(cats);
+            SelectedCategory = "All";
+            SelectedTab = "Install";
+            
+            RefreshSoftwareListCommand.Execute(null);
+        }
+        catch (Exception ex)
+        {
+            _loggingService.LogError("Failed to load software", ex);
+        }
     }
 
     /// <summary>
-    /// Refresh displayed software list based on filters
+    /// Refresh displayed software list based on filters and tab
     /// </summary>
     [RelayCommand]
     public void RefreshSoftwareList()
     {
-        var filtered = _softwareDataService.GetAllSoftware();
+        // Preserve current selections
+        var selectedIds = SoftwareList.Where(s => s.IsSelected).Select(s => s.WingetId).ToHashSet();
+        
+        var filtered = _allSoftware.ToList();
+
+        // Filter by tab
+        if (SelectedTab == "Install")
+        {
+            filtered = filtered.Where(s => s.InstallationStatus == "NotInstalled").ToList();
+        }
+        else if (SelectedTab == "Installed")
+        {
+            filtered = filtered.Where(s => s.InstallationStatus == "Installed").ToList();
+        }
+        else if (SelectedTab == "Update")
+        {
+            filtered = filtered.Where(s => s.InstallationStatus == "UpdateAvailable").ToList();
+        }
 
         // Apply category filter
         if (SelectedCategory != "All")
@@ -75,6 +112,12 @@ public partial class SelectionScreenViewModel : ObservableObject
                            s.Description.ToLower().Contains(query) ||
                            s.Publisher.ToLower().Contains(query))
                 .ToList();
+        }
+
+        // Restore selection state
+        foreach (var item in filtered)
+        {
+            item.IsSelected = selectedIds.Contains(item.WingetId);
         }
 
         SoftwareList = filtered;
@@ -159,4 +202,25 @@ public partial class SelectionScreenViewModel : ObservableObject
     {
         RefreshSoftwareListCommand.Execute(null);
     }
+
+    /// <summary>
+    /// Select a tab
+    /// </summary>
+    [RelayCommand]
+    public void SelectTab(string? tabName)
+    {
+        if (!string.IsNullOrEmpty(tabName))
+        {
+            SelectedTab = tabName;
+        }
+    }
+
+    /// <summary>
+    /// Handle tab change
+    /// </summary>
+    partial void OnSelectedTabChanged(string value)
+    {
+        RefreshSoftwareListCommand.Execute(null);
+    }
 }
+

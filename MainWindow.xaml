@@ -20,9 +20,29 @@
             </StackPanel>
         </Border>
 
-        <!-- Content Area -->
+        <!-- Content Area with Screen Selection -->
         <Border Grid.Row="1" Margin="0">
-            <ContentPresenter x:Name="ContentArea"/>
+            <Grid>
+                <!-- Loading Screen -->
+                <views:LoadingScreen 
+                    DataContext="{Binding LoadingViewModel}"
+                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.CurrentScreenIndex, Converter={StaticResource ScreenVisibilityConverter}, ConverterParameter=-1}"/>
+                
+                <!-- Selection Screen -->
+                <views:SelectionScreen 
+                    DataContext="{Binding SelectionViewModel}"
+                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.CurrentScreenIndex, Converter={StaticResource ScreenVisibilityConverter}, ConverterParameter=0}"/>
+                
+                <!-- Review Screen -->
+                <views:ReviewScreen 
+                    DataContext="{Binding ReviewViewModel}"
+                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.CurrentScreenIndex, Converter={StaticResource ScreenVisibilityConverter}, ConverterParameter=1}"/>
+                
+                <!-- Installation Screen -->
+                <views:InstallationScreen 
+                    DataContext="{Binding InstallationViewModel}"
+                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.CurrentScreenIndex, Converter={StaticResource ScreenVisibilityConverter}, ConverterParameter=2}"/>
+            </Grid>
         </Border>
 
         <!-- Footer with Navigation Buttons -->

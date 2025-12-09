@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Bulk software installation tool using Windows Package Manager")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0df9e13625cf6ca7b872f672353325c97e79a81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02cefebbfd64b4210893925af8bc470ff674a8c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("IzSetup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IzSetup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

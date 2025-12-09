@@ -10,27 +10,30 @@ namespace IzSetup.ViewModels;
 public partial class MainWindowViewModel : ObservableObject
 {
     private readonly SoftwareDataService _softwareDataService;
+    private readonly SoftwareStatusService _softwareStatusService;
     private readonly SettingsService _settingsService;
     private readonly LoggingService _loggingService;
+    private readonly LoadingScreenViewModel _loadingViewModel;
     private readonly SelectionScreenViewModel _selectionViewModel;
     private readonly ReviewScreenViewModel _reviewViewModel;
     private readonly InstallationScreenViewModel _installationViewModel;
 
     [ObservableProperty]
-    private int currentScreenIndex = 0;
+    private int currentScreenIndex = -1; // -1 = Loading, 0 = Selection, 1 = Review, 2 = Installation
 
     [ObservableProperty]
     private string windowTitle = "IzSetup - Bulk Software Installer";
 
     [ObservableProperty]
-    private string screenTitle = "Select Software";
+    private string screenTitle = "Checking Software Status";
 
     [ObservableProperty]
     private bool canGoBack = false;
 
     [ObservableProperty]
-    private bool canGoForward = true;
+    private bool canGoForward = false;
 
+    public LoadingScreenViewModel LoadingViewModel => _loadingViewModel;
     public SelectionScreenViewModel SelectionViewModel => _selectionViewModel;
     public ReviewScreenViewModel ReviewViewModel => _reviewViewModel;
     public InstallationScreenViewModel InstallationViewModel => _installationViewModel;
@@ -39,30 +42,60 @@ public partial class MainWindowViewModel : ObservableObject
     {
         _loggingService = new LoggingService();
         _softwareDataService = new SoftwareDataService(loggingService: _loggingService);
+        _softwareStatusService = new SoftwareStatusService(_loggingService);
         _settingsService = new SettingsService(loggingService: _loggingService);
         
-        _selectionViewModel = new SelectionScreenViewModel(_softwareDataService, _loggingService);
+        _loadingViewModel = new LoadingScreenViewModel(_softwareDataService, _softwareStatusService, _loggingService);
+        _selectionViewModel = new SelectionScreenViewModel(_softwareDataService, _softwareStatusService, _loggingService);
         _reviewViewModel = new ReviewScreenViewModel(_softwareDataService, _loggingService);
         _installationViewModel = new InstallationScreenViewModel(_softwareDataService, _settingsService, _loggingService);
+
+        // Subscribe to check completion event
+        _loadingViewModel.CheckCompleted += TransitionToSelection;
 
         InitializeAsync();
     }
 
     /// <summary>
-    /// Initialize view model with data
+    /// Transition from loading to selection screen
+    /// </summary>
+    private void TransitionToSelection()
+    {
+        CurrentScreenIndex = 0;
+        ScreenTitle = "Select Software";
+        CanGoBack = false;
+        CanGoForward = true;
+        _loggingService.LogInfo("Transitioned to Selection Screen");
+    }
+
+    /// <summary>
+    /// Initialize view model with data and check software status
     /// </summary>
     private async void InitializeAsync()
     {
         try
         {
+            // Show loading screen
+            CurrentScreenIndex = -1;
+            ScreenTitle = "Checking Software Status";
+            CanGoBack = false;
+            CanGoForward = false;
+
+            // Load settings
             await _settingsService.LoadSettingsAsync();
-            await _softwareDataService.LoadSoftwareListAsync();
+
+            // Load and check software status (this will trigger TransitionToSelection via event)
+            await _loadingViewModel.LoadAndCheckSoftwareAsync();
+
+            // Initialize selection view with checked software
             await _selectionViewModel.LoadSoftwareAsync();
-            _loggingService.LogInfo("Application initialized successfully");
+
+            _loggingService.LogInfo("Application initialized and ready");
         }
         catch (Exception ex)
         {
             _loggingService.LogError("Failed to initialize application", ex);
+            ScreenTitle = "Initialization failed";
         }
     }
 

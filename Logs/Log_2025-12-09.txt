@@ -1,0 +1,119 @@
+[2025-12-09 09:05:42] [Info] Settings loaded successfully
+[2025-12-09 09:05:42] [Info] Loaded 15 software items
+[2025-12-09 09:05:42] [Info] Application initialized successfully
+[2025-12-09 09:05:57] [Warning] No software selected
+[2025-12-09 09:06:00] [Warning] No software selected
+[2025-12-09 09:08:05] [Info] Settings loaded successfully
+[2025-12-09 09:08:05] [Info] Loaded 15 software items
+[2025-12-09 09:08:05] [Info] Loaded 15 software items
+[2025-12-09 09:08:05] [Info] Application initialized successfully
+[2025-12-09 09:08:05] [Info] Loaded 15 software items
+[2025-12-09 09:12:03] [Info] Settings loaded successfully
+[2025-12-09 09:12:03] [Info] Loaded 15 software items
+[2025-12-09 09:12:03] [Info] Loaded 15 software items
+[2025-12-09 09:12:03] [Info] Application initialized successfully
+[2025-12-09 09:12:04] [Info] Loaded 15 software items
+[2025-12-09 09:12:09] [Info] Selected all software
+[2025-12-09 09:12:10] [Info] Selected all software
+[2025-12-09 09:12:11] [Info] Deselected all software
+[2025-12-09 09:13:09] [Info] Settings loaded successfully
+[2025-12-09 09:13:09] [Info] Loaded 15 software items
+[2025-12-09 09:13:09] [Info] Loaded 15 software items from service
+[2025-12-09 09:13:09] [Info] Loaded 15 software items
+[2025-12-09 09:13:09] [Info] Application initialized successfully
+[2025-12-09 09:13:10] [Info] Loaded 15 software items
+[2025-12-09 09:13:12] [Info] Selected all software
+[2025-12-09 09:13:13] [Info] Selected all software
+[2025-12-09 09:13:14] [Info] Deselected all software
+[2025-12-09 09:13:18] [Info] Selected all software
+[2025-12-09 09:13:19] [Info] Deselected all software
+[2025-12-09 09:13:27] [Info] Selected all software
+[2025-12-09 09:15:32] [Info] Settings loaded successfully
+[2025-12-09 09:15:32] [Info] Loaded 15 software items
+[2025-12-09 09:15:32] [Info] Loaded 15 software items from service
+[2025-12-09 09:15:32] [Info] Loaded 15 software items
+[2025-12-09 09:15:32] [Info] Application initialized successfully
+[2025-12-09 09:15:32] [Info] Loaded 15 software items
+[2025-12-09 09:15:34] [Info] Selected all software
+[2025-12-09 09:15:35] [Info] Selected all software
+[2025-12-09 09:15:37] [Info] Deselected all software
+[2025-12-09 09:15:43] [Info] Selected all software
+[2025-12-09 09:15:45] [Info] Selected all software
+[2025-12-09 09:15:45] [Info] Selected all software
+[2025-12-09 09:15:46] [Info] Deselected all software
+[2025-12-09 09:18:15] [Info] Settings loaded successfully
+[2025-12-09 09:18:15] [Info] Loaded 15 software items
+[2025-12-09 09:18:15] [Info] Loaded 15 software items from service
+[2025-12-09 09:18:15] [Info] Loaded 15 software items
+[2025-12-09 09:18:15] [Info] Application initialized successfully
+[2025-12-09 09:18:15] [Info] Loaded 15 software items
+[2025-12-09 09:18:21] [Info] Selected all software
+[2025-12-09 09:18:22] [Info] Selected all software
+[2025-12-09 09:18:24] [Info] Selected all software
+[2025-12-09 09:18:24] [Info] Selected all software
+[2025-12-09 09:20:55] [Info] Settings loaded successfully
+[2025-12-09 09:20:55] [Info] Loaded 15 software items
+[2025-12-09 09:20:55] [Info] Loaded 15 software items from service
+[2025-12-09 09:20:55] [Info] Loaded 15 software items
+[2025-12-09 09:20:55] [Info] Application initialized successfully
+[2025-12-09 09:20:55] [Info] Loaded 15 software items
+[2025-12-09 09:20:57] [Info] Selected all software
+[2025-12-09 09:20:58] [Info] Selected all software
+[2025-12-09 09:20:59] [Info] Deselected all software
+[2025-12-09 09:31:03] [Info] Settings loaded successfully
+[2025-12-09 09:31:03] [Info] Loaded 15 software items
+[2025-12-09 09:31:03] [Info] Loaded 15 software items from service
+[2025-12-09 09:31:03] [Info] Loaded 15 software items
+[2025-12-09 09:31:04] [Info] Loaded 15 software items
+[2025-12-09 09:31:39] [Info] Application initialized successfully
+[2025-12-09 09:31:48] [Info] Selected all software
+[2025-12-09 09:31:49] [Info] Review screen updated: 9 apps, 1.18 GB total
+[2025-12-09 09:34:55] [Info] Settings loaded successfully
+[2025-12-09 09:34:55] [Info] Loaded 15 software items
+[2025-12-09 09:34:55] [Info] Loaded 15 software items
+[2025-12-09 09:34:55] [Info] Loaded 15 software items from service
+[2025-12-09 09:34:55] [Info] Loaded 15 software items
+[2025-12-09 09:35:27] [Info] Application initialized successfully
+[2025-12-09 09:39:56] [Info] Settings loaded successfully
+[2025-12-09 09:39:56] [Info] Loaded 15 software items
+[2025-12-09 09:40:31] [Info] Status check completed for 15 items
+[2025-12-09 09:40:31] [Info] Loaded 15 software items
+[2025-12-09 09:41:09] [Info] Application initialized and ready
+[2025-12-09 09:42:32] [Info] Settings loaded successfully
+[2025-12-09 09:42:32] [Info] Loaded 15 software items
+[2025-12-09 09:42:32] [Info] Cached 0 installed apps
+[2025-12-09 09:42:32] [Info] Cached 0 installed apps
+[2025-12-09 09:42:34] [Info] Cached 285 installed apps
+[2025-12-09 09:42:34] [Info] Cached 285 installed apps
+[2025-12-09 09:42:34] [Info] Cached 285 installed apps
+[2025-12-09 09:42:34] [Info] Status check completed for 15 items
+[2025-12-09 09:42:35] [Info] Transitioned to Selection Screen
+[2025-12-09 09:42:35] [Info] Loaded 15 software items
+[2025-12-09 09:42:35] [Info] Application initialized and ready
+[2025-12-09 09:52:09] [Info] Settings loaded successfully
+[2025-12-09 09:52:09] [Info] Loaded 27 software items
+[2025-12-09 09:52:10] [Info] Cached 0 installed apps
+[2025-12-09 09:52:12] [Info] Cached 285 installed apps
+[2025-12-09 09:52:12] [Info] Cached 285 installed apps
+[2025-12-09 09:52:12] [Info] Cached 285 installed apps
+[2025-12-09 09:52:12] [Info] Cached 285 installed apps
+[2025-12-09 09:52:12] [Info] Status check completed for 27 items
+[2025-12-09 09:52:12] [Info] Transitioned to Selection Screen
+[2025-12-09 09:52:12] [Info] Loaded 27 software items
+[2025-12-09 09:52:12] [Info] Application initialized and ready
+[2025-12-09 09:52:50] [Info] Review screen updated: 1 apps, 300 MB total
+[2025-12-09 09:52:58] [Error] Failed to install GIMP.GIMP: 
+[2025-12-09 09:52:58] [Info] Installation batch completed: 0 successful, 1 failed
+[2025-12-09 09:52:58] [Warning] Installation completed with 1 failures
+[2025-12-09 09:54:56] [Info] Settings loaded successfully
+[2025-12-09 09:54:56] [Info] Loaded 27 software items
+[2025-12-09 09:54:56] [Info] Cached 0 installed apps
+[2025-12-09 09:54:56] [Info] Cached 0 installed apps
+[2025-12-09 09:54:58] [Info] Cached 285 installed apps
+[2025-12-09 09:54:58] [Info] Cached 285 installed apps
+[2025-12-09 09:54:58] [Info] Cached 285 installed apps
+[2025-12-09 09:54:58] [Info] Status check completed for 27 items
+[2025-12-09 09:54:59] [Info] Transitioned to Selection Screen
+[2025-12-09 09:54:59] [Info] Loaded 27 software items
+[2025-12-09 09:54:59] [Info] Application initialized and ready
+[2025-12-09 09:55:04] [Info] Review screen updated: 1 apps, 300 MB total
